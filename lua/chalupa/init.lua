@@ -1,0 +1,8 @@
+require("chalupa.remaps")
+require("chalupa.ui")
+require("chalupa.theme")
+require("chalupa.telescope")
+require("chalupa.lualine")
+require("chalupa.autocomplete")
+require("chalupa.mason")
+require("chalupa.treesitter")
