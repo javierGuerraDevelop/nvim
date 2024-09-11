@@ -1,9 +1,9 @@
 print("welcome chalupa")                      -- Welcome message
 vim.wo.relativenumber = true                  -- Relative line numbers at the left
 vim.opt.termguicolors = true                  -- Nicer colors
-vim.opt.tabstop = 4                           -- Tab width is 4 spaces
-vim.opt.softtabstop = 4                       -- Tab width is 4 spaces
-vim.opt.shiftwidth = 4                        -- Indent amount with > in visual mode
+vim.opt.tabstop = 2                           -- Tab width is 4 spaces
+vim.opt.softtabstop = 2                       -- Tab width is 4 spaces
+vim.opt.shiftwidth = 2                        -- Indent amount width > in visual mode
 vim.opt.expandtab = true                      -- Spaces instead of tabs
 vim.g.codeium_enabled = false                 -- codeium disabled
 vim.g.codeium_disable_bindings = 1            -- codeium bindings disabled
