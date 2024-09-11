@@ -29,3 +29,29 @@ vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight on yank
 -- have an opt for transparency so I keep it here in case I switch themes
 -- vim.cmd('au ColorScheme * hi Normal guibg=NONE') -- transparency
 -- vim.cmd('au ColorScheme * hi SignColumn guibg=NONE') -- transparency
+
+
+-- Create an augroup for managing folds
+local remember_folds = vim.api.nvim_create_augroup("remember_folds", { clear = true })
+
+-- Save folds when leaving a buffer, but only if the buffer has a file name
+vim.api.nvim_create_autocmd("BufWinLeave", {
+  group = remember_folds,
+  pattern = "*",
+  callback = function()
+    if vim.fn.expand("%:p") ~= "" then
+      vim.cmd("mkview")
+    end
+  end,
+})
+
+-- Load folds when entering a buffer, but only if the buffer has a file name
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = remember_folds,
+  pattern = "*",
+  callback = function()
+    if vim.fn.expand("%:p") ~= "" then
+      vim.cmd("silent! loadview")
+    end
+  end,
+})
