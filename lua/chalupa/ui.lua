@@ -25,12 +25,6 @@ vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight on yank
   end,
 })
 
--- I have this off because I control transparency through my theme since it has that opt. Not all themes
--- have an opt for transparency so I keep it here in case I switch themes
--- vim.cmd('au ColorScheme * hi Normal guibg=NONE') -- transparency
--- vim.cmd('au ColorScheme * hi SignColumn guibg=NONE') -- transparency
-
-
 -- Create an augroup for managing folds
 local remember_folds = vim.api.nvim_create_augroup("remember_folds", { clear = true })
 
