@@ -1,13 +1,3 @@
-<<<<<<< HEAD
--- Transparency in case it is not supported by my theme
-vim.cmd('au ColorScheme * hi Normal guibg=NONE')     -- transparency
-vim.cmd('au ColorScheme * hi SignColumn guibg=NONE') -- transparency
-
-require('github-theme').setup({
-  terminal_colors = true,
-})
-vim.cmd('colorscheme github_dark')
-=======
 require("rose-pine").setup({
   variant = "auto",      -- auto, main, moon, or dawn
   dark_variant = "main", -- main, moon, or dawn
@@ -62,4 +52,3 @@ vim.cmd("colorscheme rose-pine")
 -- vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")
->>>>>>> 90673e5 (update theme)
