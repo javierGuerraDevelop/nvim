@@ -1,4 +1,5 @@
 print("welcome chalupa")                      -- Welcome message
+vim.opt.guicursor = ''                        -- Block Cursor
 vim.wo.relativenumber = true                  -- Relative line numbers at the left
 vim.opt.termguicolors = true                  -- Nicer colors
 vim.opt.tabstop = 4                           -- Tab width is 4 spaces

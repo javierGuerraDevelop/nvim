@@ -183,7 +183,8 @@ require('lazy').setup({
         config = function()
             require('chalupa.telescope')
         end
-    }, 'mustache/vim-mustache-handlebars',
+    },
+    'mustache/vim-mustache-handlebars',
 }, {})
 
 -- Setups
@@ -192,4 +193,3 @@ require('autoclose').setup()
 require('chalupa.treesitter')
 require('chalupa.mason')
 require('chalupa.autocomplete')
-require('chalupa.lspconf')
