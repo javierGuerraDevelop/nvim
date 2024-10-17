@@ -18,6 +18,18 @@ local on_attach = function(_, bufnr)
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 end
 
+require("mason").setup({
+    PATH = "append",  -- This will prioritize system packages
+    ui = {
+        border = "rounded",
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
 -- Mason Setup
 local servers = {
     lua_ls = {
