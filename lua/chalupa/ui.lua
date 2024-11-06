@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight on yank
     end,
 })
 
--- Create an augroup for managing folds
 local remember_folds = vim.api.nvim_create_augroup("remember_folds", { clear = true })
 
 -- Save folds when leaving a buffer, but only if the buffer has a file name
@@ -34,8 +33,12 @@ vim.api.nvim_create_autocmd("BufWinLeave", {
     group = remember_folds,
     pattern = "*",
     callback = function()
-        if vim.fn.expand("%:p") ~= "" then
-            vim.cmd("mkview")
+        local filepath = vim.fn.expand("%:p")
+        if filepath ~= "" then
+            -- Create the directory for the view file if it doesn't exist
+            local viewdir = vim.fn.stdpath("data") .. "/views"
+            vim.fn.mkdir(viewdir, "p")
+            vim.cmd("mkview! " .. viewdir .. "/" .. vim.fn.fnamemodify(filepath, ":t:r") .. ".vim")
         end
     end,
 })
@@ -45,8 +48,10 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     group = remember_folds,
     pattern = "*",
     callback = function()
-        if vim.fn.expand("%:p") ~= "" then
-            vim.cmd("silent! loadview")
+        local filepath = vim.fn.expand("%:p")
+        if filepath ~= "" then
+            local viewdir = vim.fn.stdpath("data") .. "/views"
+            vim.cmd("silent! loadview " .. viewdir .. "/" .. vim.fn.fnamemodify(filepath, ":t:r") .. ".vim")
         end
     end,
 })
