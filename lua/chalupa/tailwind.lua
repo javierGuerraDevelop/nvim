@@ -5,4 +5,5 @@ return {
         build = 'cd formatter && npm ci && npm run build',
         config = true
     }
-} 
+}
+

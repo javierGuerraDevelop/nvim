@@ -10,4 +10,5 @@ return {
             vim.keymap.set("n", "<A-5>", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
         end
     }
-} 
+}
+

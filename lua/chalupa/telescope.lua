@@ -15,9 +15,9 @@ return {
         config = function()
             local telescope = require('telescope')
             local builtin = require('telescope.builtin')
-            
+
             pcall(telescope.load_extension, 'fzf')
-            
+
             vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
             vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
             vim.keymap.set('n', '<leader>/', function()
