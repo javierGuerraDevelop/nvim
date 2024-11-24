@@ -4,6 +4,17 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
         build = ':TSUpdate',
         config = function()
+            vim.filetype.add({
+                extension = {
+                    sh = 'bash',
+                    zsh = 'bash'
+                },
+                pattern = {
+                    ['.*/%.sh'] = 'bash',
+                    ['.*/%.zsh'] = 'bash',
+                    ['.*zshrc.*'] = 'bash',
+                }
+            })
             require('nvim-treesitter.configs').setup {
                 ensure_installed = { 'lua', 'python', 'rust', 'tsx', 'typescript', 'javascript', 'vimdoc', 'vim', 'bash', 'html',
                     'css', 'sql' },
