@@ -1,18 +1,18 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)                             -- netrw
 vim.keymap.set('n', '<leader>rj', ':term node %:h:h/dist/%:t:r.js<CR>a') -- run javascript
 vim.keymap.set('n', '<leader>rt', ':term tsc <CR>a')                     -- run typescript
 vim.keymap.set('n', '<leader>rp', ':!python %<CR>')                      -- run python
 vim.keymap.set('n', '<leader>rh', ':!xdg-open %<CR>')                    -- run html
 vim.keymap.set('i', '<C-Del>', '<C-O>dw')                                -- erase it from the back
-vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:b#<CR>')                   -- get out of terminal mode
-vim.keymap.set('n', '<leader>t', ':terminal<CR>a')                       -- enter terminal mode
-vim.keymap.set('n', '<leader>ft', ':TailwindSort')                       -- enter terminal mode
 vim.keymap.set('n', '<C-d>', '<C-d>zz')                                  -- jump down and center
 vim.keymap.set('n', '<C-u>', '<C-u>zz')                                  -- jump down and center
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")                             -- move lines in visual up
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")                             -- move lines in visual up
+vim.keymap.set('n', '<leader>ft', ':TailwindSort')                       -- enter terminal mode
 vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format({
         async = true
@@ -51,3 +51,10 @@ vim.keymap.set('n', '<leader>0', vim.diagnostic.goto_next, {
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, {
     desc = 'Open diagnostics list'
 })
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
