@@ -21,9 +21,10 @@ local plugins = {
 
 require('lazy').setup(plugins)
 
+-- Require other configurations
+require('chalupa.ui')
+require('chalupa.remaps')
+
 -- Additional setups
 require('neodev').setup()
-require('chalupa.ui')
 
--- Require other configurations
-require('chalupa.remaps')
