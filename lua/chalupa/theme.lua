@@ -1,54 +1,35 @@
 return {
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        lazy = false,
-        priority = 1000,
+        "EdenEast/nightfox.nvim",
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require("rose-pine").setup({
-                variant = "auto",
-                dark_variant = "main",
-                dim_inactive_windows = false,
-                extend_background_behind_borders = true,
-                enable = {
-                    terminal = true,
-                    legacy_highlights = true,
-                    migrations = true,
-                },
-                styles = {
-                    bold = true,
-                    italic = false,
-                    transparency = true,
-                },
-                groups = {
-                    border = "muted",
-                    link = "iris",
-                    panel = "surface",
-                    error = "love",
-                    hint = "iris",
-                    info = "foam",
-                    note = "pine",
-                    todo = "rose",
-                    warn = "gold",
-                    git_add = "foam",
-                    git_change = "rose",
-                    git_delete = "love",
-                    git_dirty = "rose",
-                    git_ignore = "muted",
-                    git_merge = "iris",
-                    git_rename = "pine",
-                    git_stage = "iris",
-                    git_text = "rose",
-                    git_untracked = "subtle",
-                    h1 = "iris",
-                    h2 = "foam",
-                    h3 = "rose",
-                    h4 = "gold",
-                    h5 = "pine",
-                    h6 = "foam",
-                },
+            require('nightfox').setup({
+                options = {
+                    styles = {
+                        comments = "italic",
+                        keywords = "bold",
+                        types = "italic,bold",
+                    }
+                }
             })
-            vim.cmd("colorscheme rose-pine")
+            vim.cmd('colorscheme carbonfox')
         end,
-    }
+    },
+    -- {
+    --     'projekt0n/github-nvim-theme',
+    --     name = 'github-theme',
+    --     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     config = function()
+    --         require('github-theme').setup({
+    --             options = {
+    --                 -- transparent = true,
+    --             }
+    --         })
+    --
+    --         -- vim.cmd('colorscheme github_dark_default')
+    --         vim.cmd('colorscheme github_dark_default')
+    --     end,
+    -- }
 }
