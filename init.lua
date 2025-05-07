@@ -16,7 +16,7 @@ local plugins = {
     require('chalupa.harpoon'),
     require('chalupa.tailwind'),
     require('chalupa.null-ls'),
-    require('chalupa.comment')
+    require('chalupa.comment'),
 }
 
 require('lazy').setup(plugins)

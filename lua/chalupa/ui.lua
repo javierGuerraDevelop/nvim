@@ -14,6 +14,10 @@ vim.o.clipboard = 'unnamedplus'               -- Sync System clipboard with Neov
 vim.o.breakindent = true                      -- Enable break indent
 vim.o.cindent = true
 
+vim.opt.smartindent = false
+vim.opt.cindent = true
+vim.opt.cinoptions = ":0"  -- Prevent deindenting of closing braces
+
 vim.o.undofile = true                         -- Save undo history
 vim.o.ignorecase = true                       -- Case-insensitive searching
 vim.o.smartcase = true                        -- Case sensitive searching if capital is included only
