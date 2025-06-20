@@ -24,7 +24,7 @@ return {
                 },
                 virtual_lines = false, -- Disable virtual lines
                 signs = {
-                    active = true, -- Show signs in the sign column
+                    active = true,     -- Show signs in the sign column
                     values = {
                         { name = "DiagnosticSignError", text = "" },
                         { name = "DiagnosticSignWarn", text = "" },
@@ -32,9 +32,9 @@ return {
                         { name = "DiagnosticSignInfo", text = "" },
                     },
                 },
-                underline = true, -- Underline errors
+                underline = true,         -- Underline errors
                 update_in_insert = false, -- Don’t update diagnostics while typing
-                severity_sort = true, -- Sort by severity (errors first)
+                severity_sort = true,     -- Sort by severity (errors first)
             })
 
             -- Define custom signs for the sign column
@@ -51,7 +51,7 @@ return {
             vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { fg = '#00FF00', bg = '#3A3A3A' })
 
             -- On-attach function for keybindings
-            local on_attach = function(_, bufnr)
+            local on_attach = function(client, bufnr)
                 local nmap = function(keys, func, desc)
                     if desc then
                         desc = 'LSP: ' .. desc
@@ -80,54 +80,56 @@ return {
                 }
             })
 
-            -- Clangd setup with formatting
-            require('lspconfig').clangd.setup({
-                on_attach = function(client, bufnr)
-                    on_attach(client, bufnr)
-                    -- Enable formatting
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            group = augroup,
-                            buffer = bufnr,
-                            callback = function()
-                                vim.lsp.buf.format({ bufnr = bufnr })
-                            end,
-                        })
-                    end
-                end,
-            })
-
-            -- Server configurations
-            local servers = {
-                lua_ls = {
-                    Lua = {
-                        workspace = { checkThirdParty = false },
-                        telemetry = { enable = false }
-                    }
-                },
-                ts_ls = {}, -- Add ts_ls for TypeScript/JavaScript
+            -- Mason-lspconfig setup
+            local mason_lspconfig = require 'mason-lspconfig'
+            mason_lspconfig.setup {
+                ensure_installed = { 'lua_ls', 'ts_ls', 'clangd' }, -- List servers to install
+                automatic_installation = true,                      -- Optional: Automatically install servers
             }
 
             -- LSP capabilities
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-            -- Mason-lspconfig setup
-            local mason_lspconfig = require 'mason-lspconfig'
-            mason_lspconfig.setup {
-                ensure_installed = vim.tbl_keys(servers)
-            }
-            mason_lspconfig.setup_handlers {
-                function(server_name)
-                    require('lspconfig')[server_name].setup {
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes
+            -- Server configurations
+            local servers = {
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            workspace = { checkThirdParty = false },
+                            telemetry = { enable = false }
+                        }
                     }
-                end
+                },
+                ts_ls = {}, -- TypeScript/JavaScript
+                clangd = {
+                    on_attach = function(client, bufnr)
+                        on_attach(client, bufnr)
+                        -- Enable formatting for clangd
+                        if client.supports_method("textDocument/formatting") then
+                            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+                            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                            vim.api.nvim_create_autocmd("BufWritePre", {
+                                group = augroup,
+                                buffer = bufnr,
+                                callback = function()
+                                    vim.lsp.buf.format({ bufnr = bufnr })
+                                end,
+                            })
+                        end
+                    end,
+                },
             }
+
+            -- Set up each server explicitly
+            for server_name, config in pairs(servers) do
+                require('lspconfig')[server_name].setup {
+                    capabilities = capabilities,
+                    on_attach = config.on_attach or on_attach,
+                    settings = config.settings or {},
+                    filetypes = config.filetypes or nil,
+                }
+            end
         end
     }
 }

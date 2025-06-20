@@ -14,6 +14,6 @@ return
                 -- transparent = true,
             }
         })
-        vim.cmd('colorscheme carbonfox')
+        vim.cmd('colorscheme dayfox')
     end,
 }

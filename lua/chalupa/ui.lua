@@ -1,22 +1,20 @@
-print("welcome chalupa")                      -- Welcome message
-vim.wo.relativenumber = true                  -- Relative line numbers at the left
-vim.opt.termguicolors = true                  -- Nicer colors
-vim.opt.tabstop = 4                           -- Tab width is 4 spaces
-vim.opt.softtabstop = 4                       -- Tab width is 4 spaces
-vim.opt.shiftwidth = 4                        -- Indent amount width > in visual mode
-vim.opt.expandtab = true                      -- Spaces instead of tabs
-vim.g.codeium_enabled = false                 -- codeium disabled
-vim.g.codeium_disable_bindings = 1            -- codeium bindings disabled
-vim.o.hlsearch = false                        -- Set highlight on search
-vim.wo.number = true                          -- Make line numbers default
-vim.o.mouse = 'a'                             -- Enable mouse mode
-vim.o.clipboard = 'unnamedplus'               -- Sync System clipboard with Neovim.
-vim.o.breakindent = true                      -- Enable break indent
-vim.o.cindent = true
+print("welcome chalupa")           -- Welcome message
+vim.wo.relativenumber = true       -- Relative line numbers at the left
+vim.opt.termguicolors = true       -- Nicer colors
+vim.opt.tabstop = 4                -- Tab width is 4 spaces
+vim.opt.softtabstop = 4            -- Tab width is 4 spaces
+vim.opt.shiftwidth = 4             -- Indent amount width > in visual mode
+vim.opt.expandtab = true           -- Spaces instead of tabs
+vim.g.codeium_enabled = false      -- codeium disabled
+vim.g.codeium_disable_bindings = 1 -- codeium bindings disabled
+vim.o.hlsearch = false             -- Set highlight on search
+vim.wo.number = true               -- Make line numbers default
+vim.o.mouse = 'a'                  -- Enable mouse mode
+vim.o.clipboard = 'unnamedplus'    -- Sync System clipboard with Neovim.
 
-vim.opt.smartindent = false
-vim.opt.cindent = true
-vim.opt.cinoptions = ":0"  -- Prevent deindenting of closing braces
+vim.o.breakindent = true           -- Enable break indent
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 vim.o.undofile = true                         -- Save undo history
 vim.o.ignorecase = true                       -- Case-insensitive searching
@@ -30,5 +28,3 @@ vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight on yank
         vim.hl.on_yank { higroup = 'IncSearch', timeout = 300 }
     end,
 })
-
-

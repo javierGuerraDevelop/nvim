@@ -26,11 +26,11 @@ vim.keymap.set('n', '<leader>hs', vim.cmd.sp, {
     silent = true
 })                                                                                          -- split horizontally
 vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>") -- open harpoon menu
-vim.keymap.set("n", "<A-1>", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")              -- file 1
-vim.keymap.set("n", "<A-2>", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")              -- file 2
-vim.keymap.set("n", "<A-3>", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")              -- file 3
-vim.keymap.set("n", "<A-4>", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")              -- file 4
-vim.keymap.set("n", "<A-5>", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")              -- file 5
+vim.keymap.set("n", "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")              -- file 1
+vim.keymap.set("n", "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")              -- file 2
+vim.keymap.set("n", "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")              -- file 3
+vim.keymap.set("n", "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")              -- file 4
+vim.keymap.set("n", "<leader>h5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")              -- file 5
 vim.keymap.set("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>")         -- add file to harpoon
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', {
     silent = true
