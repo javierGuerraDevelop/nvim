@@ -1,4 +1,5 @@
 print("welcome chalupa")           -- Welcome message
+vim.opt.colorcolumn = "100"
 vim.wo.relativenumber = true       -- Relative line numbers at the left
 vim.opt.termguicolors = true       -- Nicer colors
 vim.opt.tabstop = 4                -- Tab width is 4 spaces
@@ -11,10 +12,12 @@ vim.o.hlsearch = false             -- Set highlight on search
 vim.wo.number = true               -- Make line numbers default
 vim.o.mouse = 'a'                  -- Enable mouse mode
 vim.o.clipboard = 'unnamedplus'    -- Sync System clipboard with Neovim.
-
+vim.cmd('au BufNewFile,BufRead *.handlebars set filetype=html')
 vim.o.breakindent = true           -- Enable break indent
+
+vim.opt.cindent = false
+vim.opt.smartindent = false
 vim.opt.autoindent = true
-vim.opt.smartindent = true
 
 vim.o.undofile = true                         -- Save undo history
 vim.o.ignorecase = true                       -- Case-insensitive searching

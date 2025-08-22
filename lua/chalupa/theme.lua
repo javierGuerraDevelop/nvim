@@ -1,19 +1,26 @@
-return
-{
-    "EdenEast/nightfox.nvim",
-    lazy = false,        -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000,     -- make sure to load this before all the other start plugins
-    config = function()
-        require('nightfox').setup({
-            options = {
-                styles = {
-                    comments = "italic",
-                    keywords = "bold",
-                    types = "bold",
+return {
+    {
+        'projekt0n/github-nvim-theme',
+        lazy = false,    -- Load during startup
+        priority = 1000, -- Load before other plugins
+        config = function()
+            require('github-theme').setup({
+                options = {
+                    transparent = true,        -- Enable/disable transparent background
+                    hide_end_of_buffer = true, -- Hide '~' at end of buffer
+                    dim_inactive = false,      -- Dim inactive windows
+                    module_default = true,     -- Enable default modules (LSP, TreeSitter, etc.)
+
+                    styles = {
+                        comments = "italic",
+                        keywords = "bold",
+                        types = "bold",
+                    },
                 },
-                -- transparent = true,
-            }
-        })
-        vim.cmd('colorscheme dayfox')
-    end,
+            })
+            vim.cmd('colorscheme github_dark') -- Options: github_dark, github_light, github_dimmed, etc.
+            -- vim.cmd('colorscheme github_light') -- Options: github_dark, github_light, github_dimmed, etc.
+        end,
+    },
 }
+

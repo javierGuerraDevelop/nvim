@@ -17,6 +17,7 @@ local plugins = {
     require('chalupa.tailwind'),
     require('chalupa.null-ls'),
     require('chalupa.comment'),
+    require('chalupa.markdown-reader'),
 }
 
 require('lazy').setup(plugins)
@@ -27,4 +28,3 @@ require('chalupa.remaps')
 
 -- Additional setups
 require('neodev').setup()
-
