@@ -18,9 +18,8 @@ return {
                     },
                 },
             })
-            vim.cmd('colorscheme github_dark') -- Options: github_dark, github_light, github_dimmed, etc.
+            vim.cmd('colorscheme github_dark') -- options: github_dark, github_light, github_dimmed, etc.
             -- vim.cmd('colorscheme github_light') -- Options: github_dark, github_light, github_dimmed, etc.
         end,
     },
 }
-
