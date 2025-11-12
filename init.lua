@@ -23,6 +23,7 @@ local plugins = {
 require('lazy').setup(plugins)
 
 -- Require other configurations
+require('chalupa.theme-switcher')
 require('chalupa.ui')
 require('chalupa.remaps')
 

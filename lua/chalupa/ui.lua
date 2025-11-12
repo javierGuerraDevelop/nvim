@@ -1,19 +1,21 @@
-print("welcome chalupa")           -- Welcome message
+print("welcome chalupa")                                   -- Welcome message
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FF69B4' })       -- Regular line numbers
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#FF69B4' }) -- Current line number
 vim.opt.colorcolumn = "100"
-vim.wo.relativenumber = true       -- Relative line numbers at the left
-vim.opt.termguicolors = true       -- Nicer colors
-vim.opt.tabstop = 4                -- Tab width is 4 spaces
-vim.opt.softtabstop = 4            -- Tab width is 4 spaces
-vim.opt.shiftwidth = 4             -- Indent amount width > in visual mode
-vim.opt.expandtab = true           -- Spaces instead of tabs
-vim.g.codeium_enabled = false      -- codeium disabled
-vim.g.codeium_disable_bindings = 1 -- codeium bindings disabled
-vim.o.hlsearch = false             -- Set highlight on search
-vim.wo.number = true               -- Make line numbers default
-vim.o.mouse = 'a'                  -- Enable mouse mode
-vim.o.clipboard = 'unnamedplus'    -- Sync System clipboard with Neovim.
+vim.wo.relativenumber = true                               -- Relative line numbers at the left
+vim.opt.termguicolors = true                               -- Nicer colors
+vim.opt.tabstop = 4                                        -- Tab width is 4 spaces
+vim.opt.softtabstop = 4                                    -- Tab width is 4 spaces
+vim.opt.shiftwidth = 4                                     -- Indent amount width > in visual mode
+vim.opt.expandtab = true                                   -- Spaces instead of tabs
+vim.g.codeium_enabled = false                              -- codeium disabled
+vim.g.codeium_disable_bindings = 1                         -- codeium bindings disabled
+vim.o.hlsearch = false                                     -- Set highlight on search
+vim.wo.number = true                                       -- Make line numbers default
+vim.o.mouse = 'a'                                          -- Enable mouse mode
+vim.o.clipboard = 'unnamedplus'                            -- Sync System clipboard with Neovim.
 vim.cmd('au BufNewFile,BufRead *.handlebars set filetype=html')
-vim.o.breakindent = true           -- Enable break indent
+vim.o.breakindent = true                                   -- Enable break indent
 
 vim.opt.cindent = false
 vim.opt.smartindent = false
