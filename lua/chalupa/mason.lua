@@ -38,11 +38,16 @@ return {
             })
 
             -- Define custom signs for the sign column
-            local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
+            vim.diagnostic.config({
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "",
+                        [vim.diagnostic.severity.WARN] = "",
+                        [vim.diagnostic.severity.HINT] = "",
+                        [vim.diagnostic.severity.INFO] = "",
+                    }
+                }
+            })
 
             -- Set custom highlight groups for diagnostics
             vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { fg = '#FF0000', bg = '#3A3A3A' })
@@ -116,7 +121,7 @@ return {
 
             -- Set up each server explicitly
             for server_name, config in pairs(servers) do
-                require('lspconfig')[server_name].setup {
+                vim.lsp.config[server_name].setup = {
                     capabilities = capabilities,
                     on_attach = config.on_attach or on_attach,
                     settings = config.settings or {},

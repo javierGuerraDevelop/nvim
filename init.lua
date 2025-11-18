@@ -14,7 +14,6 @@ local plugins = {
     require('chalupa.gitsigns'),
     require('chalupa.autoclose'),
     require('chalupa.harpoon'),
-    require('chalupa.tailwind'),
     require('chalupa.null-ls'),
     require('chalupa.comment'),
     require('chalupa.markdown-reader'),
