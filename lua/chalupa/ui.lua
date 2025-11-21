@@ -1,12 +1,12 @@
 print("welcome chalupa")                                   -- Welcome message
 vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FF69B4' })       -- Regular line numbers
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#FF69B4' }) -- Current line number
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "120"
 vim.wo.relativenumber = true                               -- Relative line numbers at the left
 vim.opt.termguicolors = true                               -- Nicer colors
-vim.opt.tabstop = 4                                        -- Tab width is 4 spaces
-vim.opt.softtabstop = 4                                    -- Tab width is 4 spaces
-vim.opt.shiftwidth = 4                                     -- Indent amount width > in visual mode
+vim.opt.tabstop = 8                                        -- Tab width is 8 spaces
+vim.opt.softtabstop = 8                                    -- Tab width is 8 spaces
+vim.opt.shiftwidth = 8                                     -- Indent amount width > in visual mode
 vim.opt.expandtab = true                                   -- Spaces instead of tabs
 vim.g.codeium_enabled = false                              -- codeium disabled
 vim.g.codeium_disable_bindings = 1                         -- codeium bindings disabled
