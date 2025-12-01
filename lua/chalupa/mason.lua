@@ -88,8 +88,8 @@ return {
                         -- Mason-lspconfig setup
                         local mason_lspconfig = require 'mason-lspconfig'
                         mason_lspconfig.setup {
-                                ensure_installed = { 'lua_ls', 'ts_ls', 'clangd', 'rust_analyzer' }, -- Added rust_analyzer
-                                automatic_installation = true,                                       -- Optional: Automatically install servers
+                                ensure_installed = { 'lua_ls', 'ts_ls', 'clangd', 'rust_analyzer' },
+                                automatic_installation = true,
                         }
 
                         -- LSP capabilities
@@ -120,8 +120,26 @@ return {
                                 rust_analyzer = {
                                         settings = {
                                                 ['rust-analyzer'] = {
+                                                        cargo = {
+                                                                allFeatures = true,
+                                                                loadOutDirsFromCheck = true,
+                                                                buildScripts = {
+                                                                        enable = true,
+                                                                },
+                                                                extraEnv = {
+                                                                        RUSTUP_TOOLCHAIN = "nightly",
+                                                                },
+                                                        },
                                                         checkOnSave = {
-                                                                command = "clippy", -- Use clippy for more thorough checks
+                                                                enable = true,
+                                                                command = "clippy",
+                                                                extraArgs = { "--no-deps" },
+                                                        },
+                                                        procMacro = {
+                                                                enable = true,
+                                                        },
+                                                        rustfmt = {
+                                                                extraArgs = { "+nightly", "--unstable-features" },
                                                         },
                                                 }
                                         }

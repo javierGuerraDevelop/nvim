@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Diagnostic keybinds
+vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'Open diagnostic location list' })
+vim.keymap.set('n', '<leader>eg', vim.diagnostic.setqflist, { desc = 'Open diagnostic quickfix list' })
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)                                -- netrw
 vim.keymap.set('n', '<leader>rj', ':term node %:h:h/dist/%:t:r.js<CR>a')    -- run javascript
@@ -13,7 +16,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')                                     -- j
 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>') -- code action
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")                                -- move lines in visual up
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")                                -- move lines in visual up
-vim.keymap.set('n', '<leader>ft', ':TailwindSort')                          -- enter terminal mode
 vim.keymap.set('n', '<leader>f', function()
         vim.lsp.buf.format({
                 async = true
