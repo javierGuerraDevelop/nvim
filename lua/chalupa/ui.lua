@@ -29,16 +29,16 @@ vim.o.updatetime = 250                        -- Decrease update time
 vim.o.timeoutlen = 300                        -- Time out for command sequences
 vim.o.completeopt = 'menuone,noselect'        -- Set completeopt to have a better completion experience
 vim.api.nvim_create_autocmd("TextYankPost", { -- Highlight on yank
-        callback = function()
-                vim.hl.on_yank { higroup = 'IncSearch', timeout = 300 }
-        end,
+    callback = function()
+        vim.hl.on_yank { higroup = 'IncSearch', timeout = 300 }
+    end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-        pattern = "rust",
-        callback = function()
-                vim.opt_local.tabstop = 4
-                vim.opt_local.shiftwidth = 4
-                vim.opt_local.softtabstop = 4
-        end,
+    pattern = "rust",
+    callback = function()
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.softtabstop = 4
+    end,
 })

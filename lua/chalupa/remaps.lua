@@ -17,15 +17,15 @@ vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>') -- c
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")                                -- move lines in visual up
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")                                -- move lines in visual up
 vim.keymap.set('n', '<leader>f', function()
-        vim.lsp.buf.format({
-                async = true
-        })
+    vim.lsp.buf.format({
+        async = true
+    })
 end) -- format
 vim.keymap.set('n', '<leader>vs', vim.cmd.vsp, {
-        silent = true
+    silent = true
 }) -- split vertically
 vim.keymap.set('n', '<leader>hs', vim.cmd.sp, {
-        silent = true
+    silent = true
 })                                                                                          -- split horizontally
 vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>") -- open harpoon menu
 vim.keymap.set("n", "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")         -- file 1
@@ -35,24 +35,24 @@ vim.keymap.set("n", "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR
 vim.keymap.set("n", "<leader>h5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")         -- file 5
 vim.keymap.set("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>")         -- add file to harpoon
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', {
-        silent = true
+    silent = true
 }) -- Keymaps for better default experience
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", {
-        expr = true,
-        silent = true
+    expr = true,
+    silent = true
 }) -- Remap for dealing with word wrap
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", {
-        expr = true,
-        silent = true
+    expr = true,
+    silent = true
 }) -- Remap for dealing with word wrap
 vim.keymap.set('n', '<leader>9', vim.diagnostic.goto_prev, {
-        desc = 'Go to previous diagnostic message'
+    desc = 'Go to previous diagnostic message'
 })
 vim.keymap.set('n', '<leader>0', vim.diagnostic.goto_next, {
-        desc = 'Go to next diagnostic message'
+    desc = 'Go to next diagnostic message'
 })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, {
-        desc = 'Open diagnostics list'
+    desc = 'Open diagnostics list'
 })
 
 local builtin = require('telescope.builtin')
