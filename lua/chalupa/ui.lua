@@ -1,7 +1,8 @@
 print("welcome chalupa")                                   -- Welcome message
 vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FF69B4' })       -- Regular line numbers
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#FF69B4' }) -- Current line number
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "100"
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#ff0000" })
 vim.wo.relativenumber = true                               -- Relative line numbers at the left
 vim.opt.termguicolors = true                               -- Nicer colors
 vim.opt.tabstop = 4                                        -- Tab width is 4 spaces
