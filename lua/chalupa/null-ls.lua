@@ -1,0 +1,16 @@
+return {
+	{
+		"nvimtools/none-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("null-ls").setup({
+				sources = {
+					require("null-ls").builtins.formatting.black.with({
+						extra_args = { "--line-length", "120" },
+					}),
+					require("null-ls").builtins.formatting.prettier.with({}),
+				},
+			})
+		end,
+	},
+}
